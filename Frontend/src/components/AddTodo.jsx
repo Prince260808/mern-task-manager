@@ -22,7 +22,7 @@ export default function AddTodo() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await api.post("/todo/add", form);
-    navigate("/");
+    navigate("/todo");
   };
 
   return (

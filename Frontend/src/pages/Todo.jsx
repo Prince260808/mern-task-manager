@@ -7,7 +7,7 @@ export default function Todo() {
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center px-6 py-24">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-          Manage Your Tasks Smarter
+          Manage Your Tasks Smarter  
         </h1>
 
         <p className="mt-4 max-w-xl text-gray-300 text-lg">

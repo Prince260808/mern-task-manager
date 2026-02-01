@@ -20,7 +20,7 @@ const Login = () => {
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("userId", response.data.user.id);
             setMsg("login successful");
-            setTimeout(()=> navigate("/"),1000)
+            setTimeout(()=> navigate("/todo"),1000)
         }  catch (err) {
             setMsg(err.response?.data?.message || "An error occurred");
           }

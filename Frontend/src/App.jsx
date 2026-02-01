@@ -4,10 +4,10 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Todo from "./pages/Todo";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import AddTodo from "./components/AddTodo";
 import EditTodo from "./components/EditTodo";
 import TodoList from "./components/TodoList";
+import ProtectedRoute from "./routes/ProtectedRoutes";
 
 function Layout() {
   return (
@@ -24,9 +24,10 @@ const router = createBrowserRouter([
     element: <Layout />,
     errorElement: <h2 style={{ textAlign: "center" }}>404 – Page Not Found</h2>,
     children: [
+      // 🌍 Public routes
       {
         index: true,
-        element: <Todo />,         
+        element: <Todo />,
       },
       {
         path: "signup",
@@ -36,17 +37,24 @@ const router = createBrowserRouter([
         path: "login",
         element: <Login />,
       },
+
+      // 🔐 Protected routes
       {
-        path: "todo/add",
-        element: <AddTodo />,
-      },
-      {
-        path: "todo",
-        element: <TodoList />,
-      },
-      {
-        path: "todo/:id",       // dynamic edit
-        element: <EditTodo />,
+        element: <ProtectedRoute />,
+        children: [
+          {
+            path: "todo",
+            element: <TodoList />,
+          },
+          {
+            path: "todo/add",
+            element: <AddTodo />,
+          },
+          {
+            path: "todo/:id",
+            element: <EditTodo />,
+          },
+        ],
       },
     ],
   },
